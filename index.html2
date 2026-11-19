@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dịch vụ dựng rạp đám cưới Quang Phụng | Rạp Cưới - Cổng Hoa - Gia Tiên</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Cormorant Garamond for festive wedding elegance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for crisp icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+          },
+          colors: {
+            crimson: {
+              700: '#991b1b',
+              800: '#7f1d1d',
+              900: '#5c1212',
+            },
+            gold: {
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#d4af37',
+              600: '#b48a1e',
+            },
+            ivory: {
+              50: '#fffdf9',
+              100: '#fdf8ef',
+              200: '#f7eedc',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom styling & curtain intro animations */
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #fffdf9;
+      color: #291d18;
+      overflow-x: hidden;
+    }
+
+    .font-wedding {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* Curtain screen overlay */
+    #intro-curtain {
+      transition: opacity 0.65s ease, visibility 0.65s ease;
+    }
+
+    #intro-curtain.curtain-opening {
+      pointer-events: none;
+    }
+
+    .curtain-panel-left {
+      transform: translateX(0);
+      transition: transform 0.95s cubic-bezier(0.77, 0, 0.175, 1);
+      background: linear-gradient(135deg, #6e1414 0%, #4a0b0b 65%, #2e0505 100%);
+    }
+
+    .curtain-panel-right {
+      transform: translateX(0);
+      transition: transform 0.95s cubic-bezier(0.77, 0, 0.175, 1);
+      background: linear-gradient(225deg, #6e1414 0%, #4a0b0b 65%, #2e0505 100%);
+    }
+
+    #intro-curtain.curtain-opening .curtain-panel-left {
+      transform: translateX(-100%);
+    }
+
+    #intro-curtain.curtain-opening .curtain-panel-right {
+      transform: translateX(100%);
+    }
+
+    #intro-curtain.curtain-opening .curtain-center-card {
+      opacity: 0;
+      transform: scale(0.92) translateY(-12px);
+      transition: opacity 0.35s ease, transform 0.45s ease;
+    }
+
+    #intro-curtain.curtain-hidden {
+      opacity: 0;
+      visibility: hidden;
+      display: none;
+    }
+
+    /* Subtle gold shimmer border */
+    .gold-frame {
+      box-shadow: 0 12px 35px -10px rgba(127, 29, 29, 0.14), inset 0 0 0 1px rgba(212, 175, 55, 0.35);
+    }
+
+    /* Toast notification animation */
+    @keyframes popIn {
+      0% { opacity: 0; transform: translateY(14px) scale(0.96); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .toast-enter {
+      animation: popIn 0.25s ease forwards;
+    }
+  </style>
+</head>
+<body class="bg-ivory-50 text-stone-900 antialiased selection:bg-amber-200 selection:text-red-950 pb-20 lg:pb-0">
+
+  <!-- ===================================================================== -->
+  <!-- 1. MÀN HÌNH INTRO MỞ RÈM (CURTAIN INTRO SCREEN)                        -->
+  <!-- ===================================================================== -->
+  <div id="intro-curtain" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden" role="dialog" aria-modal="true" aria-label="Chào mừng đến với Quang Phụng Wedding">
+    <!-- Rèm trái -->
+    <div class="curtain-panel-left absolute inset-y-0 left-0 w-1/2 border-r border-amber-400/40 shadow-2xl">
+      <div class="h-full w-full opacity-15" style="background-image: repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(251, 191, 36, 0.35) 28px, rgba(251, 191, 36, 0.35) 30px);"></div>
+    </div>
+    <!-- Rèm phải -->
+    <div class="curtain-panel-right absolute inset-y-0 right-0 w-1/2 border-l border-amber-400/40 shadow-2xl">
+      <div class="h-full w-full opacity-15" style="background-image: repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(251, 191, 36, 0.35) 28px, rgba(251, 191, 36, 0.35) 30px);"></div>
+    </div>
+
+    <!-- Nội dung chính giữa màn hình intro -->
+    <div class="curtain-center-card relative z-10 mx-4 max-w-lg w-full rounded-3xl bg-red-950/90 backdrop-blur-md border border-amber-400/50 p-6 sm:p-8 text-center text-amber-50 shadow-2xl">
+      <!-- Logo Rồng Phụng SVG -->
+      <div class="mx-auto mb-4 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-amber-300/20 to-red-900/60 border border-amber-300/60 flex items-center justify-center shadow-inner">
+        <svg viewBox="0 0 120 120" class="w-20 h-20 sm:w-24 sm:h-24" aria-label="Logo Rồng Phụng Quang Phụng">
+          <!-- Vòng tròn hoa văn -->
+          <circle cx="60" cy="60" r="54" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.8" />
+          <circle cx="60" cy="60" r="46" fill="none" stroke="#fde68a" stroke-width="1" opacity="0.5" />
+          <!-- Rồng cách điệu bên trái hướng lên -->
+          <path d="M24 76 C22 54, 34 38, 52 34 C44 42, 42 50, 48 56 C38 56, 32 64, 34 74 C36 82, 46 84, 54 78" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" />
+          <circle cx="53" cy="33" r="3.5" fill="#fde68a" />
+          <path d="M53 33 L62 29 L57 36" fill="#fbbf24" />
+          <!-- Phụng cách điệu bên phải hướng lên -->
+          <path d="M96 76 C98 54, 86 38, 68 34 C76 42, 78 50, 72 56 C82 56, 88 64, 86 74 C84 82, 74 84, 66 78" fill="none" stroke="#fde68a" stroke-width="3" stroke-linecap="round" />
+          <circle cx="67" cy="33" r="3.5" fill="#fbbf24" />
+          <path d="M67 33 L58 29 L63 36" fill="#fde68a" />
+          <!-- Song Hỷ / Biểu tượng hạnh phúc trung tâm -->
+          <path d="M60 48 L67 57 L60 66 L53 57 Z" fill="none" stroke="#fbbf24" stroke-width="2" />
+          <circle cx="60" cy="57" r="3" fill="#fde68a" />
+          <!-- Đuôi cách điệu xòe bên dưới -->
+          <path d="M44 86 Q60 98 76 86" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" />
+          <path d="M50 92 Q60 101 70 92" fill="none" stroke="#fde68a" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <p class="text-xs sm:text-sm uppercase tracking-[0.25em] text-amber-300 font-semibold mb-1">
+        Trăm Năm Hạnh Phúc
+      </p>
+      <h1 class="font-wedding text-3xl sm:text-5xl font-bold text-amber-200 tracking-wide mb-2">
+        Quang Phụng Wedding
+      </h1>
+      <p class="text-sm sm:text-base text-amber-100/85 mb-6 leading-relaxed">
+        Dịch vụ dựng rạp đám cưới, cổng hoa nghệ thuật, sân khấu &amp; bàn thờ gia tiên trọn gói — chỉn chu từng chi tiết.
+      </p>
+
+      <button
+        id="enter-site-btn"
+        type="button"
+        onclick="openCurtain()"
+        class="group inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 px-8 py-3.5 text-base font-bold text-red-950 shadow-lg shadow-amber-500/25 hover:from-yellow-300 hover:to-amber-400 active:scale-95 transition-all cursor-pointer"
+      >
+        <span>Vào Tham Quan</span>
+        <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 2. THANH ĐIỀU HƯỚNG CỐ ĐỊNH (STICKY HEADER)                          -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-ivory-50/95 backdrop-blur-md border-b border-amber-200/80 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-18 flex items-center justify-between gap-3">
+      <!-- Brand + Logo Rồng Phụng nhỏ -->
+      <a href="#top" class="flex items-center gap-2.5 min-w-0">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-red-900 to-red-800 border border-amber-400/70 flex items-center justify-center shrink-0 shadow">
+          <svg viewBox="0 0 120 120" class="w-7 h-7" aria-hidden="true">
+            <path d="M26 76 C24 54, 36 38, 52 34 C44 42, 42 50, 48 56 C38 56, 32 64, 34 74" fill="none" stroke="#fbbf24" stroke-width="4.5" stroke-linecap="round" />
+            <path d="M94 76 C96 54, 84 38, 68 34 C76 42, 78 50, 72 56 C82 56, 88 64, 86 74" fill="none" stroke="#fde68a" stroke-width="4.5" stroke-linecap="round" />
+            <circle cx="60" cy="56" r="6" fill="#fbbf24" />
+          </svg>
+        </div>
+        <div class="truncate">
+          <span class="block font-wedding text-lg sm:text-xl font-bold text-red-900 leading-tight truncate">
+            Quang Phụng
+          </span>
+          <span class="block text-[11px] text-amber-700 font-medium tracking-wide truncate">
+            Dịch Vụ Rạp Cưới Trọn Gói
+          </span>
+        </div>
+      </a>
+
+      <!-- Menu điều hướng Desktop -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-stone-700">
+        <a href="#dich-vu" class="hover:text-red-800 transition-colors">Hạng mục</a>
+        <a href="#quy-trinh" class="hover:text-red-800 transition-colors">Ưu điểm</a>
+        <a href="#dat-lich" class="hover:text-red-800 transition-colors">Khảo sát &amp; Báo giá</a>
+        <a href="#lien-he" class="hover:text-red-800 transition-colors">Liên hệ</a>
+      </nav>
+
+      <!-- Nút bật/tắt nhạc nền Web Audio API + Xem lại rèm -->
+      <div class="flex items-center gap-2 shrink-0">
+        <button
+          id="music-toggle-btn"
+          type="button"
+          onclick="toggleChimeMusic()"
+          aria-pressed="false"
+          class="inline-flex items-center gap-2 rounded-full border border-amber-400/80 bg-amber-50 hover:bg-amber-100 active:scale-95 px-3.5 py-2 text-xs sm:text-sm font-semibold text-red-900 transition-all cursor-pointer"
+          title="Bật/Tắt nhạc chuông du dương (Web Audio API)"
+        >
+          <i id="music-icon" class="fa-solid fa-volume-xmark text-amber-700"></i>
+          <span id="music-label">Nhạc nền: Tắt</span>
+        </button>
+
+        <button
+          type="button"
+          onclick="replayCurtain()"
+          class="hidden sm:inline-flex items-center justify-center w-9 h-9 rounded-full border border-stone-200 hover:border-amber-400 text-stone-600 hover:text-red-900 transition-colors cursor-pointer"
+          title="Xem lại màn hình mở rèm"
+          aria-label="Xem lại màn hình mở rèm"
+        >
+          <i class="fa-solid fa-rotate-left text-xs"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- 3. PHẦN HERO CHÍNH                                                    -->
+  <!-- ===================================================================== -->
+  <section id="top" class="relative overflow-hidden bg-gradient-to-b from-ivory-100 via-ivory-50 to-amber-50/40 pt-10 pb-14 sm:pt-16 sm:pb-20 border-b border-amber-200/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      <!-- Cột trái: Giới thiệu -->
+      <div class="lg:col-span-7 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 rounded-full bg-red-900/10 border border-red-900/20 px-3.5 py-1 text-xs sm:text-sm font-semibold text-red-900 mb-4">
+          <i class="fa-solid fa-crown text-amber-600"></i>
+          <span>Uy Tín • Đúng Giờ • Thẩm Mỹ Cao</span>
+        </div>
+
+        <h2 class="font-wedding text-4xl sm:text-5xl lg:text-6xl font-bold text-red-950 leading-[1.12] mb-4">
+          Không Gian Cưới Trang Trọng &amp; Rực Rỡ Cho Ngày Vui
+        </h2>
+
+        <p class="text-sm sm:text-base text-stone-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-6">
+          <strong>Dịch vụ dựng rạp đám cưới Quang Phụng</strong> chuyên thi công khung rạp kiên cố, cổng hoa nghệ thuật, sân khấu đãi tiệc và bàn thờ gia tiên theo nhiều phong cách — khảo sát tận nơi nhanh chóng, báo giá minh bạch.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
+          <a
+            href="#dat-lich"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-900 to-red-800 hover:from-red-800 hover:to-red-700 text-amber-200 font-semibold px-6 py-3.5 shadow-md shadow-red-900/20 transition-all"
+          >
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Đặt Lịch Khảo Sát Mặt Bằng</span>
+          </a>
+          <a
+            href="#dich-vu"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-white hover:bg-amber-50 border border-amber-300 text-red-900 font-semibold px-6 py-3.5 transition-all"
+          >
+            <i class="fa-solid fa-images text-amber-600"></i>
+            <span>Xem Mẫu Thiết Kế</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Cột phải: Huy hiệu Rồng Phụng & Cam kết nổi bật -->
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl bg-gradient-to-br from-red-950 via-red-900 to-red-950 text-amber-50 p-6 sm:p-8 border border-amber-400/50 shadow-xl relative overflow-hidden">
+          <div class="flex items-center gap-4 pb-5 border-b border-amber-400/25">
+            <div class="w-16 h-16 rounded-2xl bg-amber-400/15 border border-amber-300/50 flex items-center justify-center shrink-0">
+              <svg viewBox="0 0 120 120" class="w-13 h-13" aria-label="Biểu tượng Rồng Phụng">
+                <circle cx="60" cy="60" r="52" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.6" />
+                <path d="M25 76 C23 54, 35 38, 52 34 C44 42, 42 50, 48 56 C38 56, 32 64, 34 74" fill="none" stroke="#fbbf24" stroke-width="3.5" stroke-linecap="round" />
+                <path d="M95 76 C97 54, 85 38, 68 34 C76 42, 78 50, 72 56 C82 56, 88 64, 86 74" fill="none" stroke="#fde68a" stroke-width="3.5" stroke-linecap="round" />
+                <path d="M60 47 L67 57 L60 67 L53 57 Z" fill="none" stroke="#fbbf24" stroke-width="2.2" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-widest text-amber-300 font-semibold">Thương Hiệu Gia Đình</p>
+              <h3 class="font-wedding text-2xl sm:text-3xl font-bold text-amber-200">Quang Phụng</h3>
+              <p class="text-xs text-amber-100/80">Thi công rạp cưới &amp; trang trí trọn gói</p>
+            </div>
+          </div>
+
+          <ul class="mt-5 space-y-3 text-sm text-amber-100/90">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5 shrink-0"></i>
+              <span>Khung rạp chắc chắn, che nắng mưa tốt, trần lụa &amp; đèn trang trí hài hòa.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5 shrink-0"></i>
+              <span>Tùy biến linh hoạt theo sân nhà, hẻm nhỏ, sân vườn hoặc khuôn viên rộng.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5 shrink-0"></i>
+              <span>Hỗ trợ tư vấn nhanh qua điện thoại: <strong class="text-amber-300">0375 212 379</strong> &amp; <strong class="text-amber-300">0974 207 348</strong>.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 4. DANH MỤC 3 HẠNG MỤC NỔI BẬT + BỘ LỌC PHONG CÁCH                  -->
+  <!-- ===================================================================== -->
+  <section id="dich-vu" class="py-14 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-700">Hạng Mục Tiêu Biểu</span>
+        <h2 class="font-wedding text-3xl sm:text-5xl font-bold text-red-950 mt-1">
+          Dịch Vụ Cốt Lõi Quang Phụng
+        </h2>
+        <p class="text-sm sm:text-base text-stone-600 mt-2 max-w-xl">
+          Chọn phong cách bên dưới để xem gợi ý phối màu phù hợp, hoặc bấm vào từng hạng mục để mở xem bản xem trước chi tiết.
+        </p>
+      </div>
+
+      <!-- Bộ lọc phong cách: Tất cả, Truyền thống, Hiện đại, Pastel -->
+      <div id="style-filter-bar" class="flex flex-wrap items-center gap-2" role="group" aria-label="Bộ lọc phong cách">
+        <button
+          type="button"
+          data-style="all"
+          onclick="setStyleFilter('all')"
+          class="style-pill active rounded-full px-4 py-2 text-xs sm:text-sm font-semibold bg-red-900 text-amber-200 shadow-sm transition-all cursor-pointer"
+        >
+          Tất cả
+        </button>
+        <button
+          type="button"
+          data-style="traditional"
+          onclick="setStyleFilter('traditional')"
+          class="style-pill rounded-full px-4 py-2 text-xs sm:text-sm font-semibold bg-amber-100/80 text-stone-700 hover:bg-amber-200/80 transition-all cursor-pointer"
+        >
+          Truyền thống
+        </button>
+        <button
+          type="button"
+          data-style="modern"
+          onclick="setStyleFilter('modern')"
+          class="style-pill rounded-full px-4 py-2 text-xs sm:text-sm font-semibold bg-amber-100/80 text-stone-700 hover:bg-amber-200/80 transition-all cursor-pointer"
+        >
+          Hiện đại
+        </button>
+        <button
+          type="button"
+          data-style="pastel"
+          onclick="setStyleFilter('pastel')"
+          class="style-pill rounded-full px-4 py-2 text-xs sm:text-sm font-semibold bg-amber-100/80 text-stone-700 hover:bg-amber-200/80 transition-all cursor-pointer"
+        >
+          Pastel
+        </button>
+      </div>
+    </div>
+
+    <!-- Banner thông báo phong cách đang chọn -->
+    <div id="style-hint-banner" class="mb-8 rounded-2xl bg-amber-50 border border-amber-200/90 px-4 py-3 text-xs sm:text-sm text-stone-700 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5">
+        <i class="fa-solid fa-sparkles text-amber-600 shrink-0"></i>
+        <span id="style-hint-text">
+          Đang hiển thị <strong>Tất cả</strong> phong cách — cả 3 hạng mục đều có thể tùy chỉnh tông Đỏ - Vàng truyền thống, Trắng - Vàng hiện đại hoặc Hồng/Kem Pastel.
+        </span>
+      </div>
+      <button
+        type="button"
+        onclick="prefillConsultationFromStyle()"
+        class="text-red-900 font-semibold hover:underline shrink-0 text-left sm:text-right cursor-pointer"
+      >
+        Dùng phong cách này để tư vấn →
+      </button>
+    </div>
+
+    <!-- 3 Thẻ hạng mục nổi bật -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      <!-- HẠNG MỤC 1: Cổng hoa nghệ thuật -->
+      <article
+        onclick="openCategoryModal('cong-hoa')"
+        class="group rounded-3xl bg-white gold-frame overflow-hidden flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
+      >
+        <div>
+          <!-- Minh họa riêng cho Cổng hoa nghệ thuật -->
+          <div id="card-preview-cong-hoa" class="h-52 w-full relative overflow-hidden bg-gradient-to-br from-rose-100 via-amber-50 to-red-100 flex items-center justify-center p-4 transition-colors duration-300">
+            <svg viewBox="0 0 320 180" class="w-full h-full max-w-[280px]" aria-label="Minh họa Cổng hoa nghệ thuật">
+              <!-- Vòm cổng hoa -->
+              <path d="M75 162 L75 82 A85 72 0 0 1 245 82 L245 162" fill="none" stroke="#b45309" stroke-width="4" stroke-linecap="round" />
+              <path d="M83 162 L83 84 A77 64 0 0 1 237 84 L237 162" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5 4" />
+              <!-- Cụm hoa trái & đỉnh & phải -->
+              <circle cx="80" cy="115" r="14" fill="#be123c" opacity="0.85" />
+              <circle cx="94" cy="102" r="11" fill="#fda4af" />
+              <circle cx="72" cy="135" r="12" fill="#f59e0b" opacity="0.85" />
+              <circle cx="240" cy="115" r="14" fill="#be123c" opacity="0.85" />
+              <circle cx="226" cy="102" r="11" fill="#fda4af" />
+              <circle cx="248" cy="135" r="12" fill="#f59e0b" opacity="0.85" />
+              <circle cx="160" cy="12" r="15" fill="#e11d48" />
+              <circle cx="142" cy="16" r="11" fill="#fbbf24" />
+              <circle cx="178" cy="16" r="11" fill="#fbcfe8" />
+              <!-- Bảng tên chào mừng -->
+              <rect x="115" y="54" width="90" height="30" rx="8" fill="#fffdf9" stroke="#d4af37" stroke-width="2" />
+              <text x="160" y="73" text-anchor="middle" font-size="11" font-weight="700" fill="#7f1d1d">WELCOME</text>
+            </svg>
+            <span class="absolute top-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-red-900 shadow-sm">
+              01 • Điểm Nhấn Đón Khách
+            </span>
+          </div>
+
+          <div class="p-6">
+            <h3 class="font-wedding text-2xl sm:text-3xl font-bold text-red-950 group-hover:text-red-800 transition-colors">
+              Cổng hoa nghệ thuật
+            </h3>
+            <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+              Thiết kế vòm hoa bán nguyệt, khung tròn hoặc cổng hoa lụa phối hoa tươi theo mùa, kèm bảng tên cô dâu chú rể hài hòa không gian đón khách.
+            </p>
+          </div>
+        </div>
+
+        <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-amber-100">
+          <span class="text-xs font-semibold text-amber-700">Bấm để xem bản xem trước</span>
+          <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-amber-100 group-hover:bg-red-900 text-red-900 group-hover:text-amber-200 transition-colors">
+            <i class="fa-solid fa-expand text-xs"></i>
+          </span>
+        </div>
+      </article>
+
+      <!-- HẠNG MỤC 2: Nhà rạp không gian lớn -->
+      <article
+        onclick="openCategoryModal('nha-rap')"
+        class="group rounded-3xl bg-white gold-frame overflow-hidden flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
+      >
+        <div>
+          <!-- Minh họa riêng cho Nhà rạp không gian lớn -->
+          <div id="card-preview-nha-rap" class="h-52 w-full relative overflow-hidden bg-gradient-to-br from-amber-100 via-ivory-100 to-stone-200 flex items-center justify-center p-4 transition-colors duration-300">
+            <svg viewBox="0 0 320 180" class="w-full h-full max-w-[280px]" aria-label="Minh họa Nhà rạp không gian lớn">
+              <!-- Mái rạp lượn sóng -->
+              <path d="M24 72 Q92 38 160 66 Q228 38 296 72 L282 86 Q224 62 160 84 Q96 62 38 86 Z" fill="#7f1d1d" stroke="#d4af37" stroke-width="2" />
+              <!-- Đèn chùm / dây đèn trang trí -->
+              <line x1="100" y1="78" x2="100" y2="104" stroke="#b45309" stroke-width="1.5" />
+              <circle cx="100" cy="108" r="5" fill="#fbbf24" />
+              <line x1="160" y1="84" x2="160" y2="112" stroke="#b45309" stroke-width="1.5" />
+              <circle cx="160" cy="116" r="6" fill="#fbbf24" />
+              <line x1="220" y1="78" x2="220" y2="104" stroke="#b45309" stroke-width="1.5" />
+              <circle cx="220" cy="108" r="5" fill="#fbbf24" />
+              <!-- Cột trụ & vách rèm -->
+              <rect x="42" y="84" width="6" height="74" rx="2" fill="#92400e" />
+              <rect x="272" y="84" width="6" height="74" rx="2" fill="#92400e" />
+              <path d="M48 86 Q76 112 64 156 L48 156 Z" fill="#fef3c7" opacity="0.9" />
+              <path d="M272 86 Q244 112 256 156 L272 156 Z" fill="#fef3c7" opacity="0.9" />
+              <!-- Bàn tiệc mẫu -->
+              <ellipse cx="160" cy="146" rx="56" ry="12" fill="#fffdf9" stroke="#d4af37" stroke-width="2" />
+            </svg>
+            <span class="absolute top-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-red-900 shadow-sm">
+              02 • Khung Rạp Vững Chãi
+            </span>
+          </div>
+
+          <div class="p-6">
+            <h3 class="font-wedding text-2xl sm:text-3xl font-bold text-red-950 group-hover:text-red-800 transition-colors">
+              Nhà rạp không gian lớn
+            </h3>
+            <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+              Kết cấu khung rạp rộng thoáng, lắp ghép linh hoạt theo diện tích sân, phủ trần voan lụa, rèm cột tinh tế và ánh sáng ấm áp cho hàng trăm khách mời.
+            </p>
+          </div>
+        </div>
+
+        <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-amber-100">
+          <span class="text-xs font-semibold text-amber-700">Bấm để xem bản xem trước</span>
+          <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-amber-100 group-hover:bg-red-900 text-red-900 group-hover:text-amber-200 transition-colors">
+            <i class="fa-solid fa-expand text-xs"></i>
+          </span>
+        </div>
+      </article>
+
+      <!-- HẠNG MỤC 3: Sân khấu & gia tiên -->
+      <article
+        onclick="openCategoryModal('san-khau')"
+        class="group rounded-3xl bg-white gold-frame overflow-hidden flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
+      >
+        <div>
+          <!-- Minh họa riêng cho Sân khấu & gia tiên -->
+          <div id="card-preview-san-khau" class="h-52 w-full relative overflow-hidden bg-gradient-to-br from-red-100 via-amber-50 to-yellow-100 flex items-center justify-center p-4 transition-colors duration-300">
+            <svg viewBox="0 0 320 180" class="w-full h-full max-w-[280px]" aria-label="Minh họa Sân khấu & gia tiên">
+              <!-- Phông nền / Backdrop gia tiên -->
+              <rect x="76" y="24" width="168" height="106" rx="14" fill="#7f1d1d" stroke="#d4af37" stroke-width="2.5" />
+              <rect x="86" y="34" width="148" height="86" rx="10" fill="none" stroke="#fde68a" stroke-width="1.2" stroke-dasharray="4 3" />
+              <!-- Chữ Hỷ cách điệu -->
+              <text x="160" y="72" text-anchor="middle" font-size="24" font-weight="700" fill="#fbbf24">囍</text>
+              <text x="160" y="96" text-anchor="middle" font-size="10" letter-spacing="2" fill="#fde68a">GIA TIÊN &amp; SÂN KHẤU</text>
+              <!-- Bàn thờ / bàn lễ & đôi lư đồng -->
+              <rect x="104" y="122" width="112" height="12" rx="3" fill="#b45309" stroke="#fbbf24" stroke-width="1.5" />
+              <circle cx="132" cy="116" r="5" fill="#fbbf24" />
+              <circle cx="188" cy="116" r="5" fill="#fbbf24" />
+              <!-- Bục sân khấu phía dưới -->
+              <rect x="38" y="140" width="244" height="22" rx="6" fill="#991b1b" stroke="#d4af37" stroke-width="1.5" />
+              <line x1="160" y1="140" x2="160" y2="162" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3 3" />
+            </svg>
+            <span class="absolute top-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-red-900 shadow-sm">
+              03 • Trang Nghiêm &amp; Rực Rỡ
+            </span>
+          </div>
+
+          <div class="p-6">
+            <h3 class="font-wedding text-2xl sm:text-3xl font-bold text-red-950 group-hover:text-red-800 transition-colors">
+              Sân khấu &amp; gia tiên
+            </h3>
+            <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+              Bố trí không gian lễ gia tiên trang nghiêm, chuẩn nghi thức truyền thống kết hợp sân khấu làm lễ và chụp ảnh lưu niệm nổi bật, gọn gàng.
+            </p>
+          </div>
+        </div>
+
+        <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-amber-100">
+          <span class="text-xs font-semibold text-amber-700">Bấm để xem bản xem trước</span>
+          <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-amber-100 group-hover:bg-red-900 text-red-900 group-hover:text-amber-200 transition-colors">
+            <i class="fa-solid fa-expand text-xs"></i>
+          </span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 5. ƯU ĐIỂM & QUY TRÌNH THI CÔNG                                      -->
+  <!-- ===================================================================== -->
+  <section id="quy-trinh" class="py-12 sm:py-16 bg-ivory-100 border-y border-amber-200/70">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-700">Vì Sao Chọn Quang Phụng</span>
+        <h2 class="font-wedding text-3xl sm:text-4xl font-bold text-red-950 mt-1">
+          Làm Việc Rõ Ràng — Đúng Hẹn Từng Ngày Cưới
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="rounded-2xl bg-white p-5 border border-amber-200/70 shadow-xs">
+          <div class="w-10 h-10 rounded-xl bg-red-900 text-amber-300 flex items-center justify-center font-bold mb-3">1</div>
+          <h3 class="font-bold text-red-950 mb-1">Khảo sát thực tế</h3>
+          <p class="text-xs sm:text-sm text-stone-600">Đo đạc mặt bằng, lối xe vận chuyển và tư vấn bố trí rạp hợp lý nhất.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-5 border border-amber-200/70 shadow-xs">
+          <div class="w-10 h-10 rounded-xl bg-red-900 text-amber-300 flex items-center justify-center font-bold mb-3">2</div>
+          <h3 class="font-bold text-red-950 mb-1">Báo giá trọn gói</h3>
+          <p class="text-xs sm:text-sm text-stone-600">Thống nhất hạng mục rõ ràng từ đầu, hạn chế phát sinh không mong muốn.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-5 border border-amber-200/70 shadow-xs">
+          <div class="w-10 h-10 rounded-xl bg-red-900 text-amber-300 flex items-center justify-center font-bold mb-3">3</div>
+          <h3 class="font-bold text-red-950 mb-1">Dựng lắp đúng tiến độ</h3>
+          <p class="text-xs sm:text-sm text-stone-600">Đội ngũ thi công cẩn thận, hoàn thiện trước ngày lễ để gia đình an tâm.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-5 border border-amber-200/70 shadow-xs">
+          <div class="w-10 h-10 rounded-xl bg-red-900 text-amber-300 flex items-center justify-center font-bold mb-3">4</div>
+          <h3 class="font-bold text-red-950 mb-1">Tháo dỡ gọn gàng</h3>
+          <p class="text-xs sm:text-sm text-stone-600">Thu dọn nhanh chóng, sạch sẽ sau khi buổi tiệc kết thúc.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 6. FORM ĐẶT LỊCH KHẢO SÁT MẶT BẰNG & TƯ VẤN NHANH                   -->
+  <!-- ===================================================================== -->
+  <section id="dat-lich" class="py-14 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-5">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-700">Đặt Lịch Nhanh</span>
+        <h2 class="font-wedding text-3xl sm:text-4xl font-bold text-red-950 mt-1 mb-3">
+          Đăng Ký Khảo Sát Mặt Bằng &amp; Nhận Tư Vấn
+        </h2>
+        <p class="text-sm text-stone-600 leading-relaxed mb-5">
+          Điền thông tin ngày tổ chức, khu vực dựng rạp và phong cách mong muốn. Hệ thống sẽ tạo bản tóm tắt yêu cầu gọn gàng để bạn gửi nhanh qua điện thoại/Zalo hoặc lưu lại đối chiếu.
+        </p>
+
+        <div class="rounded-2xl bg-amber-50/90 border border-amber-200 p-4 space-y-2.5 text-xs sm:text-sm text-stone-700">
+          <div class="flex items-center gap-2.5">
+            <i class="fa-solid fa-phone-volume text-red-800"></i>
+            <span>Cần tư vấn gấp? Gọi ngay <strong>0375 212 379</strong> hoặc <strong>0974 207 348</strong>.</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <i class="fa-solid fa-shield-halved text-amber-600"></i>
+            <span>Hoạt động hoàn toàn offline/tĩnh trên GitHub Pages, không cần máy chủ backend.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <form id="consultation-form" onsubmit="handleConsultationSubmit(event)" class="rounded-3xl bg-white gold-frame p-6 sm:p-8 space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="client-name" class="block text-xs sm:text-sm font-semibold text-stone-800 mb-1.5">
+                Họ tên cô dâu / chú rể / gia đình <span class="text-red-700">*</span>
+              </label>
+              <input
+                id="client-name"
+                name="clientName"
+                type="text"
+                required
+                placeholder="Ví dụ: Anh Minh / Gia đình bác Ba"
+                class="w-full rounded-xl border border-stone-300 bg-ivory-50 px-4 py-2.5 text-sm text-stone-900 focus:border-red-800 focus:bg-white focus:outline-none transition-colors"
+              />
+            </div>
+
+            <div>
+              <label for="client-phone" class="block text-xs sm:text-sm font-semibold text-stone-800 mb-1.5">
+                Số điện thoại liên hệ <span class="text-red-700">*</span>
+              </label>
+              <input
+                id="client-phone"
+                name="clientPhone"
+                type="tel"
+                required
+                placeholder="Ví dụ: 09xx xxx xxx"
+                class="w-full rounded-xl border border-stone-300 bg-ivory-50 px-4 py-2.5 text-sm text-stone-900 focus:border-red-800 focus:bg-white focus:outline-none transition-colors"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="event-date" class="block text-xs sm:text-sm font-semibold text-stone-800 mb-1.5">
+                Ngày dự kiến tổ chức
+              </label>
+              <input
+                id="event-date"
+                name="eventDate"
+                type="date"
+                class="w-full rounded-xl border border-stone-300 bg-ivory-50 px-4 py-2.5 text-sm text-stone-900 focus:border-red-800 focus:bg-white focus:outline-none transition-colors"
+              />
+            </div>
+
+            <div>
+              <label for="event-style" class="block text-xs sm:text-sm font-semibold text-stone-800 mb-1.5">
+                Phong cách ưa thích
+              </label>
+              <select
+                id="event-style"
+                name="eventStyle"
+                class="w-full rounded-xl border border-stone-300 bg-ivory-50 px-4 py-2.5 text-sm text-stone-900 focus:border-red-800 focus:bg-white focus:outline-none transition-colors"
+              >
+                <option value="Tất cả (Tư vấn linh hoạt)">Tất cả (Tư vấn linh hoạt)</option>
+                <option value="Truyền thống (Đỏ - Vàng)">Truyền thống (Đỏ - Vàng)</option>
+                <option value="Hiện đại (Trắng - Vàng Gold)">Hiện đại (Trắng - Vàng Gold)</option>
+                <option value="Pastel (Hồng phấn - Kem nhẹ)">Pastel (Hồng phấn - Kem nhẹ)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs sm:text-sm font-semibold text-stone-800 mb-2">
+              Hạng mục cần dựng / trang trí
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs sm:text-sm">
+              <label class="flex items-center gap-2 rounded-xl border border-amber-200/80 bg-ivory-50 px-3.5 py-2.5 cursor-pointer hover:bg-amber-50">
+                <input type="checkbox" name="services" value="Cổng hoa nghệ thuật" checked class="accent-red-900 rounded" />
+                <span>Cổng hoa</span>
+              </label>
+              <label class="flex items-center gap-2 rounded-xl border border-amber-200/80 bg-ivory-50 px-3.5 py-2.5 cursor-pointer hover:bg-amber-50">
+                <input type="checkbox" name="services" value="Nhà rạp không gian lớn" checked class="accent-red-900 rounded" />
+                <span>Nhà rạp</span>
+              </label>
+              <label class="flex items-center gap-2 rounded-xl border border-amber-200/80 bg-ivory-50 px-3.5 py-2.5 cursor-pointer hover:bg-amber-50">
+                <input type="checkbox" name="services" value="Sân khấu & gia tiên" checked class="accent-red-900 rounded" />
+                <span>Sân khấu &amp; gia tiên</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label for="event-notes" class="block text-xs sm:text-sm font-semibold text-stone-800 mb-1.5">
+              Địa điểm / Kích thước sân &amp; ghi chú thêm
+            </label>
+            <textarea
+              id="event-notes"
+              name="eventNotes"
+              rows="3"
+              placeholder="Ví dụ: Dựng tại sân nhà khoảng 8m x 22m, cần khảo sát buổi chiều..."
+              class="w-full rounded-xl border border-stone-300 bg-ivory-50 px-4 py-2.5 text-sm text-stone-900 focus:border-red-800 focus:bg-white focus:outline-none transition-colors"
+            ></textarea>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-900 to-red-800 hover:from-red-800 hover:to-red-700 text-amber-200 font-semibold px-6 py-3.5 shadow-md cursor-pointer transition-all"
+            >
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Tạo Phiếu Yêu Cầu Khảo Sát</span>
+            </button>
+            <button
+              type="reset"
+              onclick="clearBookingSummary()"
+              class="inline-flex items-center justify-center gap-2 rounded-xl border border-stone-300 hover:bg-stone-100 text-stone-700 font-medium px-4 py-3.5 text-sm cursor-pointer transition-colors"
+            >
+              Xoá nội dung
+            </button>
+          </div>
+
+          <!-- Khung hiển thị tóm tắt yêu cầu sau khi bấm gửi -->
+          <div id="booking-summary-box" class="hidden rounded-2xl bg-amber-50 border border-amber-300 p-4 space-y-3">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-red-900">
+                <i class="fa-solid fa-clipboard-check mr-1.5 text-amber-600"></i>
+                Phiếu Yêu Cầu Đã Sẵn Sàng
+              </span>
+              <button
+                type="button"
+                onclick="copyBookingSummary()"
+                class="inline-flex items-center gap-1.5 rounded-lg bg-red-900 hover:bg-red-800 text-amber-200 px-3 py-1.5 text-xs font-semibold cursor-pointer transition-colors"
+              >
+                <i class="fa-regular fa-copy"></i>
+                <span>Sao chép nội dung</span>
+              </button>
+            </div>
+            <pre id="booking-summary-text" class="whitespace-pre-wrap font-sans text-xs sm:text-sm text-stone-800 bg-white rounded-xl p-3.5 border border-amber-200/80"></pre>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 7. KHỐI LIÊN HỆ VỚI NÚT SAO CHÉP SỐ ĐIỆN THOẠI NHANH                -->
+  <!-- ===================================================================== -->
+  <section id="lien-he" class="py-14 sm:py-16 bg-gradient-to-br from-red-950 via-red-900 to-red-950 text-amber-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-300">Liên Hệ Trực Tiếp</span>
+        <h2 class="font-wedding text-3xl sm:text-5xl font-bold text-amber-200 mt-1">
+          Dịch Vụ Dựng Rạp Đám Cưới Quang Phụng
+        </h2>
+        <p class="text-sm sm:text-base text-amber-100/85 mt-2">
+          Bấm sao chép số điện thoại chỉ với một chạm hoặc gọi trực tiếp để được hỗ trợ nhanh nhất.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <!-- Số 1: 0375 212 379 -->
+        <div class="rounded-3xl bg-red-950/75 border border-amber-400/40 p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-amber-300 font-semibold">Hotline 01</span>
+            <p class="text-2xl sm:text-3xl font-bold text-white tracking-wide mt-0.5">0375 212 379</p>
+            <p class="text-xs text-amber-100/75 mt-1">Tư vấn dựng rạp, khảo sát &amp; báo giá</p>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0">
+            <button
+              type="button"
+              onclick="copyPhoneNumber('0375 212 379')"
+              class="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-400 hover:bg-yellow-300 active:scale-95 text-red-950 font-bold px-4 py-3 text-sm transition-all cursor-pointer"
+            >
+              <i class="fa-regular fa-copy"></i>
+              <span>Sao chép</span>
+            </button>
+            <a
+              href="tel:0375212379"
+              class="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-amber-300/60 hover:bg-amber-400/15 text-amber-200 transition-colors"
+              title="Gọi 0375 212 379"
+              aria-label="Gọi số 0375 212 379"
+            >
+              <i class="fa-solid fa-phone"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Số 2: 0974 207 348 -->
+        <div class="rounded-3xl bg-red-950/75 border border-amber-400/40 p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-amber-300 font-semibold">Hotline 02</span>
+            <p class="text-2xl sm:text-3xl font-bold text-white tracking-wide mt-0.5">0974 207 348</p>
+            <p class="text-xs text-amber-100/75 mt-1">Hỗ trợ mẫu cổng hoa, gia tiên &amp; lịch thi công</p>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0">
+            <button
+              type="button"
+              onclick="copyPhoneNumber('0974 207 348')"
+              class="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-400 hover:bg-yellow-300 active:scale-95 text-red-950 font-bold px-4 py-3 text-sm transition-all cursor-pointer"
+            >
+              <i class="fa-regular fa-copy"></i>
+              <span>Sao chép</span>
+            </button>
+            <a
+              href="tel:0974207348"
+              class="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-amber-300/60 hover:bg-amber-400/15 text-amber-200 transition-colors"
+              title="Gọi 0974 207 348"
+              aria-label="Gọi số 0974 207 348"
+            >
+              <i class="fa-solid fa-phone"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 pt-6 border-t border-amber-400/20 text-center text-xs text-amber-200/70">
+        © <span id="current-year">2026</span> Dịch vụ dựng rạp đám cưới Quang Phụng • Sẵn sàng chạy mượt trên GitHub Pages.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 8. THANH GỌI NHANH TRÊN MOBILE (MOBILE QUICK-CALL BAR)              -->
+  <!-- ===================================================================== -->
+  <div class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-red-950/95 backdrop-blur-md border-t border-amber-400/50 px-3 py-2.5 shadow-2xl">
+    <div class="max-w-md mx-auto grid grid-cols-2 gap-2.5">
+      <a
+        href="tel:0375212379"
+        class="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-300 text-red-950 font-bold py-2.5 px-3 text-xs sm:text-sm shadow active:scale-95 transition-transform"
+      >
+        <i class="fa-solid fa-phone-volume"></i>
+        <span>Gọi 0375 212 379</span>
+      </a>
+      <a
+        href="tel:0974207348"
+        class="flex items-center justify-center gap-2 rounded-xl bg-red-800 hover:bg-red-700 border border-amber-300/50 text-amber-100 font-bold py-2.5 px-3 text-xs sm:text-sm active:scale-95 transition-transform"
+      >
+        <i class="fa-solid fa-phone"></i>
+        <span>Gọi 0974 207 348</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 9. MODAL XEM TRƯỚC HẠNG MỤC (DISTINCT PREVIEW + CANVAS + FALLBACK)    -->
+  <!-- ===================================================================== -->
+  <div
+    id="category-modal"
+    class="hidden fixed inset-0 z-50 bg-stone-950/75 backdrop-blur-xs flex items-center justify-center p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-category-title"
+    onclick="handleModalBackdropClick(event)"
+  >
+    <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-amber-300/70">
+      <!-- Header modal -->
+      <div class="flex items-center justify-between px-6 py-4 bg-ivory-100 border-b border-amber-200">
+        <div>
+          <span id="modal-category-badge" class="text-[11px] font-bold uppercase tracking-widest text-amber-700"></span>
+          <h3 id="modal-category-title" class="font-wedding text-2xl sm:text-3xl font-bold text-red-950"></h3>
+        </div>
+        <button
+          type="button"
+          onclick="closeCategoryModal()"
+          class="w-10 h-10 rounded-full bg-white hover:bg-red-50 border border-stone-200 text-stone-700 hover:text-red-900 flex items-center justify-center cursor-pointer transition-colors"
+          aria-label="Đóng cửa sổ xem trước"
+        >
+          <i class="fa-solid fa-xmark text-base"></i>
+        </button>
+      </div>
+
+      <!-- Khung xem trước riêng cho từng hạng mục (SVG + Canvas động + Fallback an toàn) -->
+      <div class="p-6 space-y-5">
+        <div class="rounded-2xl overflow-hidden border border-amber-200 bg-ivory-50 relative">
+          <!-- Khung SVG / Canvas xem trước -->
+          <div id="modal-visual-container" class="w-full h-56 sm:h-64 flex items-center justify-center p-4"></div>
+
+          <!-- Dự phòng ảnh nếu bật chế độ xem ảnh tĩnh/fallback -->
+          <img
+            id="modal-fallback-img"
+            src=""
+            alt=""
+            class="hidden w-full h-56 sm:h-64 object-cover"
+            onerror="handleModalImageError(this)"
+          />
+        </div>
+
+        <p id="modal-category-desc" class="text-sm text-stone-700 leading-relaxed"></p>
+
+        <div id="modal-category-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-stone-700"></div>
+
+        <div class="pt-3 border-t border-stone-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <button
+            type="button"
+            onclick="selectCategoryAndScrollToForm()"
+            class="inline-flex items-center justify-center gap-2 rounded-xl bg-red-900 hover:bg-red-800 text-amber-200 font-semibold px-5 py-3 text-sm cursor-pointer transition-colors"
+          >
+            <i class="fa-solid fa-calendar-plus"></i>
+            <span>Đặt lịch tư vấn hạng mục này</span>
+          </button>
+          <button
+            type="button"
+            onclick="closeCategoryModal()"
+            class="inline-flex items-center justify-center rounded-xl border border-stone-300 hover:bg-stone-100 text-stone-700 font-medium px-5 py-3 text-sm cursor-pointer transition-colors"
+          >
+            Đóng
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 10. THÔNG BÁO TOAST (KHÔNG DÙNG ALERT)                               -->
+  <!-- ===================================================================== -->
+  <div id="toast-container" class="fixed bottom-20 lg:bottom-6 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ===================================================================== -->
+  <!-- 11. JAVASCRIPT: RÈM INTRO, WEB AUDIO CHIMES, LỌC PHONG CÁCH, MODAL    -->
+  <!-- ===================================================================== -->
+  <script>
+    // Dữ liệu chi tiết riêng biệt cho 3 hạng mục chính
+    const CATEGORIES = {
+      'cong-hoa': {
+        badge: 'Hạng mục 01 • Cổng hoa nghệ thuật',
+        title: 'Cổng hoa nghệ thuật',
+        serviceValue: 'Cổng hoa nghệ thuật',
+        desc: 'Tạo điểm nhấn chào đón khách mời ngay từ lối vào với bố cục hoa vòm, hoa tầng hoặc hoa điểm góc, phối màu theo chủ đề đám cưới và kích thước cổng thực tế.',
+        features: [
+          'Đa dạng dáng cổng: vòm bán nguyệt, khung hiện đại, cổng hoa lụa cao cấp',
+          'Phối bảng tên cô dâu chú rể & lời chào mừng hài hòa',
+          'Dễ dàng điều chỉnh theo độ rộng sân hoặc lối đi gia đình',
+          'Kết hợp đèn điểm nhẹ nhàng cho tiệc trưa lẫn tiệc chiều'
+        ],
+        fallbackSrc: './assets/cong-hoa.jpg',
+        renderVisual: function (container, styleKey) {
+          const palette = getStylePalette(styleKey);
+          container.style.background = palette.bgGradient;
+          container.innerHTML = `
+            <canvas id="preview-canvas" class="w-full h-full"></canvas>
+          `;
+          drawCategoryCanvas('cong-hoa', palette);
+        }
+      },
+      'nha-rap': {
+        badge: 'Hạng mục 02 • Nhà rạp không gian lớn',
+        title: 'Nhà rạp không gian lớn',
+        serviceValue: 'Nhà rạp không gian lớn',
+        desc: 'Cung cấp không gian tiệc rộng rãi, thoáng mát và che chắn tốt cho gia đình và khách mời. Trần rạp, vách lụa và hệ thống chiếu sáng được căn chỉnh gọn gàng, đẹp mắt.',
+        features: [
+          'Khung rạp chắc chắn, phù hợp sân nhà, sân vườn, bãi đất trống',
+          'Trần lụa xếp nếp mềm mại kết hợp rèm trụ gọn gàng',
+          'Tối ưu lối đi phục vụ tiệc và chỗ ngồi thoải mái',
+          'Thi công & tháo dỡ đúng lịch hẹn đã thống nhất'
+        ],
+        fallbackSrc: './assets/nha-rap.jpg',
+        renderVisual: function (container, styleKey) {
+          const palette = getStylePalette(styleKey);
+          container.style.background = palette.bgGradient;
+          container.innerHTML = `
+            <canvas id="preview-canvas" class="w-full h-full"></canvas>
+          `;
+          drawCategoryCanvas('nha-rap', palette);
+        }
+      },
+      'san-khau': {
+        badge: 'Hạng mục 03 • Sân khấu & gia tiên',
+        title: 'Sân khấu & gia tiên',
+        serviceValue: 'Sân khấu & gia tiên',
+        desc: 'Chăm chút khu vực làm lễ gia tiên trang nghiêm, giữ trọn nét đẹp lễ nghi truyền thống, đồng thời dựng sân khấu gọn gàng phục vụ nghi thức cưới và chụp ảnh gia đình.',
+        features: [
+          'Bố trí bàn thờ gia tiên & bàn hai họ chỉnh chu, cân đối',
+          'Phông nền nổi bật làm nền chụp ảnh lưu niệm sắc nét',
+          'Bục sân khấu vững chắc, phối màu ăn khớp với cổng hoa & rạp',
+          'Dễ dàng tùy chỉnh theo diện tích phòng khách hoặc sân trước'
+        ],
+        fallbackSrc: './assets/san-khau.jpg',
+        renderVisual: function (container, styleKey) {
+          const palette = getStylePalette(styleKey);
+          container.style.background = palette.bgGradient;
+          container.innerHTML = `
+            <canvas id="preview-canvas" class="w-full h-full"></canvas>
+          `;
+          drawCategoryCanvas('san-khau', palette);
+        }
+      }
+    };
+
+    const STYLE_CONFIG = {
+      all: {
+        label: 'Tất cả',
+        hint: 'Đang hiển thị <strong>Tất cả</strong> phong cách — cả 3 hạng mục đều có thể tùy chỉnh tông Đỏ - Vàng truyền thống, Trắng - Vàng hiện đại hoặc Hồng/Kem Pastel.',
+        formOption: 'Tất cả (Tư vấn linh hoạt)',
+        accent: '#991b1b',
+        secondary: '#d4af37',
+        flower: '#e11d48',
+        bgGradient: 'linear-gradient(135deg, #fffdf9 0%, #fef3c7 55%, #ffe4e6 100%)'
+      },
+      traditional: {
+        label: 'Truyền thống',
+        hint: 'Phong cách <strong>Truyền thống</strong>: sắc đỏ son trang trọng kết hợp vàng kim rực rỡ, đậm nét hỷ sự Việt Nam.',
+        formOption: 'Truyền thống (Đỏ - Vàng)',
+        accent: '#7f1d1d',
+        secondary: '#f59e0b',
+        flower: '#b91c1c',
+        bgGradient: 'linear-gradient(135deg, #fef2f2 0%, #fde68a 100%)'
+      },
+      modern: {
+        label: 'Hiện đại',
+        hint: 'Phong cách <strong>Hiện đại</strong>: tông trắng kem thanh lịch điểm ánh vàng đồng sang trọng, gọn gàng và tinh tế.',
+        formOption: 'Hiện đại (Trắng - Vàng Gold)',
+        accent: '#78350f',
+        secondary: '#eab308',
+        flower: '#d97706',
+        bgGradient: 'linear-gradient(135deg, #fffdf9 0%, #f5f5f4 55%, #fef9c3 100%)'
+      },
+      pastel: {
+        label: 'Pastel',
+        hint: 'Phong cách <strong>Pastel</strong>: sắc hồng phấn, đào nhạt và kem sữa dịu mắt, mang lại cảm giác nhẹ nhàng, lãng mạn.',
+        formOption: 'Pastel (Hồng phấn - Kem nhẹ)',
+        accent: '#9d174d',
+        secondary: '#f9a8d4',
+        flower: '#f472b6',
+        bgGradient: 'linear-gradient(135deg, #fdf2f8 0%, #fff1f2 55%, #fefce8 100%)'
+      }
+    };
+
+    let currentStyle = 'all';
+    let activeModalCategoryKey = null;
+
+    function getStylePalette(styleKey) {
+      return STYLE_CONFIG[styleKey] || STYLE_CONFIG.all;
+    }
+
+    // -----------------------------------------------------------------------
+    // Màn hình Intro mở rèm
+    // -----------------------------------------------------------------------
+    function openCurtain() {
+      const curtain = document.getElementById('intro-curtain');
+      if (!curtain) return;
+      curtain.classList.add('curtain-opening');
+      setTimeout(() => {
+        curtain.classList.add('curtain-hidden');
+      }, 960);
+    }
+
+    function replayCurtain() {
+      const curtain = document.getElementById('intro-curtain');
+      if (!curtain) return;
+      curtain.classList.remove('curtain-hidden');
+      // Force reflow so transition plays cleanly again
+      void curtain.offsetWidth;
+      curtain.classList.remove('curtain-opening');
+    }
+
+    // -----------------------------------------------------------------------
+    // Bộ lọc phong cách (Tất cả, Truyền thống, Hiện đại, Pastel)
+    // -----------------------------------------------------------------------
+    function setStyleFilter(styleKey) {
+      if (!STYLE_CONFIG[styleKey]) return;
+      currentStyle = styleKey;
+
+      const pills = document.querySelectorAll('.style-pill');
+      pills.forEach((pill) => {
+        const isSelected = pill.getAttribute('data-style') === styleKey;
+        if (isSelected) {
+          pill.classList.add('active', 'bg-red-900', 'text-amber-200', 'shadow-sm');
+          pill.classList.remove('bg-amber-100/80', 'text-stone-700', 'hover:bg-amber-200/80');
+        } else {
+          pill.classList.remove('active', 'bg-red-900', 'text-amber-200', 'shadow-sm');
+          pill.classList.add('bg-amber-100/80', 'text-stone-700', 'hover:bg-amber-200/80');
+        }
+      });
+
+      const cfg = STYLE_CONFIG[styleKey];
+      const hintText = document.getElementById('style-hint-text');
+      if (hintText) hintText.innerHTML = cfg.hint;
+
+      // Đồng bộ chọn mặc định trong form tư vấn
+      const formSelect = document.getElementById('event-style');
+      if (formSelect) {
+        formSelect.value = cfg.formOption;
+      }
+
+      // Cập nhật nền nhẹ trên 3 thẻ để người dùng thấy sự chuyển tông màu
+      const cardPrevs = {
+        'cong-hoa': document.getElementById('card-preview-cong-hoa'),
+        'nha-rap': document.getElementById('card-preview-nha-rap'),
+        'san-khau': document.getElementById('card-preview-san-khau')
+      };
+      Object.values(cardPrevs).forEach((el) => {
+        if (el) el.style.background = cfg.bgGradient;
+      });
+
+      // Nếu modal đang mở thì vẽ lại canvas theo phong cách mới
+      if (activeModalCategoryKey && CATEGORIES[activeModalCategoryKey]) {
+        const container = document.getElementById('modal-visual-container');
+        if (container) CATEGORIES[activeModalCategoryKey].renderVisual(container, currentStyle);
+      }
+    }
+
+    function prefillConsultationFromStyle() {
+      const cfg = STYLE_CONFIG[currentStyle] || STYLE_CONFIG.all;
+      const formSelect = document.getElementById('event-style');
+      if (formSelect) formSelect.value = cfg.formOption;
+      const target = document.getElementById('dat-lich');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      showToast(`Đã chọn phong cách "${cfg.label}" cho form tư vấn.`);
+    }
+
+    // -----------------------------------------------------------------------
+    // Modal xem trước hạng mục + Vẽ Canvas riêng cho từng hạng mục
+    // -----------------------------------------------------------------------
+    function openCategoryModal(categoryKey) {
+      const cat = CATEGORIES[categoryKey];
+      if (!cat) return;
+
+      activeModalCategoryKey = categoryKey;
+      const modal = document.getElementById('category-modal');
+      const badgeEl = document.getElementById('modal-category-badge');
+      const titleEl = document.getElementById('modal-category-title');
+      const descEl = document.getElementById('modal-category-desc');
+      const featuresEl = document.getElementById('modal-category-features');
+      const visualContainer = document.getElementById('modal-visual-container');
+      const fallbackImg = document.getElementById('modal-fallback-img');
+
+      badgeEl.textContent = cat.badge;
+      titleEl.textContent = cat.title;
+      descEl.textContent = cat.desc;
+
+      featuresEl.innerHTML = cat.features
+        .map(
+          (item) => `
+          <div class="flex items-start gap-2 rounded-xl bg-ivory-50 border border-amber-200/60 p-2.5">
+            <i class="fa-solid fa-check text-amber-600 mt-0.5 shrink-0"></i>
+            <span>${item}</span>
+          </div>
+        `
+        )
+        .join('');
+
+      // Ẩn ảnh fallback mặc định, hiển thị bản vẽ Canvas chuyên biệt của từng hạng mục
+      fallbackImg.classList.add('hidden');
+      visualContainer.classList.remove('hidden');
+      cat.renderVisual(visualContainer, currentStyle);
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCategoryModal() {
+      const modal = document.getElementById('category-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      activeModalCategoryKey = null;
+      document.body.style.overflow = '';
+    }
+
+    function handleModalBackdropClick(event) {
+      if (event.target && event.target.id === 'category-modal') {
+        closeCategoryModal();
+      }
+    }
+
+    // Fallback an toàn nếu thẻ img được dùng và ảnh không tồn tại trên repo
+    function handleModalImageError(imgEl) {
+      imgEl.classList.add('hidden');
+      const container = document.getElementById('modal-visual-container');
+      if (container && activeModalCategoryKey && CATEGORIES[activeModalCategoryKey]) {
+        container.classList.remove('hidden');
+        CATEGORIES[activeModalCategoryKey].renderVisual(container, currentStyle);
+      }
+    }
+
+    function selectCategoryAndScrollToForm() {
+      if (!activeModalCategoryKey || !CATEGORIES[activeModalCategoryKey]) {
+        closeCategoryModal();
+        return;
+      }
+      const chosenService = CATEGORIES[activeModalCategoryKey].serviceValue;
+      const checkboxes = document.querySelectorAll('#consultation-form input[name="services"]');
+      checkboxes.forEach((cb) => {
+        cb.checked = cb.value === chosenService;
+      });
+      closeCategoryModal();
+      const formEl = document.getElementById('dat-lich');
+      if (formEl) formEl.scrollIntoView({ behavior: 'smooth' });
+      showToast(`Đã tích chọn "${chosenService}" trong phiếu khảo sát.`);
+    }
+
+    function drawCategoryCanvas(categoryKey, palette) {
+      const canvas = document.getElementById('preview-canvas');
+      if (!canvas) return;
+      const parent = canvas.parentElement;
+      const width = parent ? Math.max(280, parent.clientWidth - 32) : 520;
+      const height = parent ? Math.max(180, parent.clientHeight - 32) : 220;
+
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, width, height);
+
+      const cx = width / 2;
+      const baseY = height - 18;
+
+      if (categoryKey === 'cong-hoa') {
+        // Vẽ cổng hoa nghệ thuật + cụm hoa + bảng tên
+        const archRx = Math.min(82, width * 0.22);
+        const archRy = Math.min(72, height * 0.34);
+        const archTopY = Math.max(36, height * 0.32);
+
+        ctx.strokeStyle = palette.accent;
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(cx - archRx, baseY);
+        ctx.lineTo(cx - archRx, archTopY + archRy);
+        ctx.arc(cx, archTopY + archRy, archRx, Math.PI, 0, false);
+        ctx.lineTo(cx + archRx, baseY);
+        ctx.stroke();
+
+        // Cụm hoa dọc vòm
+        const flowerPoints = [
+          [cx - archRx, baseY - 26],
+          [cx - archRx, archTopY + archRy + 8],
+          [cx - archRx * 0.65, archTopY + archRy * 0.35],
+          [cx, archTopY - 4],
+          [cx + archRx * 0.65, archTopY + archRy * 0.35],
+          [cx + archRx, archTopY + archRy + 8],
+          [cx + archRx, baseY - 26]
+        ];
+        flowerPoints.forEach(([fx, fy], idx) => {
+          ctx.fillStyle = idx % 2 === 0 ? palette.flower : palette.secondary;
+          ctx.beginPath();
+          ctx.arc(fx, fy, idx === 3 ? 13 : 10, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#fffdf9';
+          ctx.beginPath();
+          ctx.arc(fx, fy, 3.5, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        // Bảng chào mừng treo giữa vòm
+        ctx.fillStyle = '#fffdf9';
+        ctx.strokeStyle = palette.secondary;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(cx - 56, archTopY + archRy - 14, 112, 30, 8);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = palette.accent;
+        ctx.font = 'bold 11px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('QUANG PHỤNG', cx, archTopY + archRy + 5);
+      } else if (categoryKey === 'nha-rap') {
+        // Vẽ nhà rạp không gian lớn + mái lượn + dây đèn + bàn tiệc
+        const spanW = Math.min(240, width * 0.78);
+        const leftX = cx - spanW / 2;
+        const rightX = cx + spanW / 2;
+        const roofY = Math.max(42, height * 0.28);
+
+        // Cột trụ trái & phải
+        ctx.fillStyle = palette.accent;
+        ctx.fillRect(leftX + 10, roofY + 12, 6, baseY - (roofY + 12));
+        ctx.fillRect(rightX - 16, roofY + 12, 6, baseY - (roofY + 12));
+
+        // Mái rạp lượn sóng
+        ctx.fillStyle = palette.accent;
+        ctx.beginPath();
+        ctx.moveTo(leftX, roofY + 14);
+        ctx.quadraticCurveTo(cx - spanW * 0.25, roofY - 14, cx, roofY + 8);
+        ctx.quadraticCurveTo(cx + spanW * 0.25, roofY - 14, rightX, roofY + 14);
+        ctx.lineTo(rightX - 8, roofY + 24);
+        ctx.quadraticCurveTo(cx + spanW * 0.25, roofY + 4, cx, roofY + 20);
+        ctx.quadraticCurveTo(cx - spanW * 0.25, roofY + 4, leftX + 8, roofY + 24);
+        ctx.closePath();
+        ctx.fill();
+
+        // Dây đèn trang trí
+        [-0.25, 0, 0.25].forEach((offset) => {
+          const lx = cx + spanW * offset;
+          ctx.strokeStyle = '#92400e';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(lx, roofY + 18);
+          ctx.lineTo(lx, roofY + 46);
+          ctx.stroke();
+
+          ctx.fillStyle = '#fbbf24';
+          ctx.beginPath();
+          ctx.arc(lx, roofY + 50, 5.5, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        // Bàn tiệc tròn phía dưới
+        ctx.fillStyle = '#fffdf9';
+        ctx.strokeStyle = palette.secondary;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.ellipse(cx, baseY - 12, spanW * 0.28, 12, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+      } else {
+        // Vẽ sân khấu & bàn thờ gia tiên
+        const boxW = Math.min(186, width * 0.56);
+        const boxH = Math.min(104, height * 0.52);
+        const boxX = cx - boxW / 2;
+        const boxY = 18;
+
+        // Phông backdrop gia tiên
+        ctx.fillStyle = palette.accent;
+        ctx.beginPath();
+        ctx.roundRect(boxX, boxY, boxW, boxH, 14);
+        ctx.fill();
+
+        ctx.strokeStyle = palette.secondary;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(boxX + 8, boxY + 8, boxW - 16, boxH - 16, 10);
+        ctx.stroke();
+
+        ctx.fillStyle = '#fde68a';
+        ctx.font = 'bold 22px serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('囍', cx, boxY + boxH * 0.46);
+
+        ctx.font = 'bold 10px Inter, sans-serif';
+        ctx.fillText('LỄ GIA TIÊN & SÂN KHẤU', cx, boxY + boxH * 0.72);
+
+        // Bục sân khấu bên dưới
+        const stageW = Math.min(250, width * 0.8);
+        ctx.fillStyle = palette.accent;
+        ctx.beginPath();
+        ctx.roundRect(cx - stageW / 2, baseY - 18, stageW, 20, 6);
+        ctx.fill();
+        ctx.strokeStyle = palette.secondary;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+    }
+
+    // Vẽ lại canvas nếu người dùng xoay màn hình / đổi kích thước khi modal đang mở
+    window.addEventListener('resize', () => {
+      if (activeModalCategoryKey && CATEGORIES[activeModalCategoryKey]) {
+        const visualContainer = document.getElementById('modal-visual-container');
+        const fallbackImg = document.getElementById('modal-fallback-img');
+        if (visualContainer && fallbackImg && fallbackImg.classList.contains('hidden')) {
+          CATEGORIES[activeModalCategoryKey].renderVisual(visualContainer, currentStyle);
+        }
+      }
+    });
+
+    // Đóng modal khi bấm phím ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && activeModalCategoryKey) {
+        closeCategoryModal();
+      }
+    });
+
+    // -----------------------------------------------------------------------
+    // Sao chép số điện thoại (có fallback execCommand chạy tốt trong iframe)
+    // -----------------------------------------------------------------------
+    function copyTextToClipboard(text, onSuccess) {
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        navigator.clipboard
+          .writeText(text)
+          .then(onSuccess)
+          .catch(() => fallbackExecCopy(text, onSuccess));
+      } else {
+        fallbackExecCopy(text, onSuccess);
+      }
+    }
+
+    function fallbackExecCopy(text, onSuccess) {
+      try {
+        const tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        tempInput.setAttribute('readonly', '');
+        tempInput.style.position = 'fixed';
+        tempInput.style.left = '-9999px';
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        onSuccess();
+      } catch (err) {
+        showToast('Không thể tự động sao chép, vui lòng giữ tay để copy số.', 'warn');
+      }
+    }
+
+    function copyPhoneNumber(phone) {
+      copyTextToClipboard(phone, () => {
+        showToast(`Đã sao chép số điện thoại ${phone}`);
+      });
+    }
+
+    // -----------------------------------------------------------------------
+    // Form đặt lịch khảo sát mặt bằng & tư vấn nhanh
+    // -----------------------------------------------------------------------
+    function handleConsultationSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const name = (form.clientName.value || '').trim();
+      const phone = (form.clientPhone.value || '').trim();
+      const dateVal = form.eventDate.value || 'Chưa chốt ngày cụ thể';
+      const styleVal = form.eventStyle.value;
+      const notes = (form.eventNotes.value || '').trim() || 'Không có ghi chú thêm';
+
+      const checkedServices = Array.from(form.querySelectorAll('input[name="services"]:checked')).map(
+        (el) => el.value
+      );
+      const servicesText = checkedServices.length > 0 ? checkedServices.join(', ') : 'Tư vấn toàn bộ hạng mục';
+
+      const summary = [
+        'YÊU CẦU KHẢO SÁT & TƯ VẤN - QUANG PHỤNG WEDDING',
+        `• Khách hàng: ${name}`,
+        `• Điện thoại: ${phone}`,
+        `• Ngày dự kiến: ${dateVal}`,
+        `• Phong cách: ${styleVal}`,
+        `• Hạng mục: ${servicesText}`,
+        `• Địa điểm / Ghi chú: ${notes}`
+      ].join('\n');
+
+      const box = document.getElementById('booking-summary-box');
+      const pre = document.getElementById('booking-summary-text');
+      if (box && pre) {
+        pre.textContent = summary;
+        box.classList.remove('hidden');
+        box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      showToast('Đã tạo phiếu yêu cầu khảo sát mặt bằng!');
+    }
+
+    function copyBookingSummary() {
+      const pre = document.getElementById('booking-summary-text');
+      if (!pre || !pre.textContent) return;
+      copyTextToClipboard(pre.textContent, () => {
+        showToast('Đã sao chép nội dung phiếu khảo sát!');
+      });
+    }
+
+    function clearBookingSummary() {
+      const box = document.getElementById('booking-summary-box');
+      const pre = document.getElementById('booking-summary-text');
+      if (box) box.classList.add('hidden');
+      if (pre) pre.textContent = '';
+    }
+
+    // -----------------------------------------------------------------------
+    // Nhạc nền chuông nhẹ nhàng bằng Web Audio API (hoạt động offline/GitHub)
+    // -----------------------------------------------------------------------
+    const ChimePlayer = {
+      ctx: null,
+      isPlaying: false,
+      timerId: null,
+      stepIndex: 0,
+      // Chuỗi nốt ngũ cung ấm áp, du dương (Hz)
+      notes: [523.25, 659.25, 783.99, 880.0, 783.99, 659.25, 587.33, 659.25],
+
+      ensureContext() {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return null;
+        if (!this.ctx) {
+          this.ctx = new AudioCtx();
+        }
+        if (this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+        return this.ctx;
+      },
+
+      playBellNote(freq) {
+        const ctx = this.ensureContext();
+        if (!ctx) return;
+
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const overtone = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+
+        overtone.type = 'triangle';
+        overtone.frequency.setValueAtTime(freq * 2, now);
+
+        const overtoneGain = ctx.createGain();
+        overtoneGain.gain.setValueAtTime(0.015, now);
+        overtoneGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.7);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.linearRampToValueAtTime(0.055, now + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.65);
+
+        osc.connect(gain);
+        overtone.connect(overtoneGain);
+        overtoneGain.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        overtone.start(now);
+        osc.stop(now + 1.7);
+        overtone.stop(now + 1.7);
+      },
+
+      start() {
+        const ctx = this.ensureContext();
+        if (!ctx) {
+          showToast('Trình duyệt của bạn chưa hỗ trợ Web Audio API.', 'warn');
+          return;
+        }
+        this.isPlaying = true;
+        this.playBellNote(this.notes[this.stepIndex % this.notes.length]);
+        this.stepIndex++;
+
+        this.timerId = setInterval(() => {
+          if (!this.isPlaying) return;
+          const freq = this.notes[this.stepIndex % this.notes.length];
+          this.playBellNote(freq);
+          this.stepIndex++;
+        }, 1250);
+      },
+
+      stop() {
+        this.isPlaying = false;
+        if (this.timerId) {
+          clearInterval(this.timerId);
+          this.timerId = null;
+        }
+      }
+    };
+
+    function toggleChimeMusic() {
+      const btn = document.getElementById('music-toggle-btn');
+      const icon = document.getElementById('music-icon');
+      const label = document.getElementById('music-label');
+
+      if (!ChimePlayer.isPlaying) {
+        ChimePlayer.start();
+        btn.setAttribute('aria-pressed', 'true');
+        icon.className = 'fa-solid fa-volume-high text-amber-600';
+        label.textContent = 'Nhạc nền: Bật';
+        showToast('Đã bật nhạc chuông nhẹ nhàng (Web Audio API)');
+      } else {
+        ChimePlayer.stop();
+        btn.setAttribute('aria-pressed', 'false');
+        icon.className = 'fa-solid fa-volume-xmark text-amber-700';
+        label.textContent = 'Nhạc nền: Tắt';
+        showToast('Đã tắt nhạc nền');
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // Hiển thị thông báo Toast nhỏ gọn
+    // -----------------------------------------------------------------------
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      toast.className =
+        'toast-enter pointer-events-auto rounded-2xl bg-red-950 text-amber-100 border border-amber-400/60 px-4 py-3 text-xs sm:text-sm font-medium shadow-xl flex items-center gap-2.5 max-w-xs';
+      toast.innerHTML = `<i class="fa-solid fa-circle-info text-amber-400 shrink-0"></i><span>${message}</span>`;
+
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.25s ease';
+        setTimeout(() => toast.remove(), 260);
+      }, 2600);
+    }
+
+    // Cập nhật năm hiện tại tự động
+    document.addEventListener('DOMContentLoaded', () => {
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) {
+        yearEl.textContent = String(new Date().getFullYear());
+      }
+    });
+  </script>
+</body>
+</html>
