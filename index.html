@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Album Ảnh Sự Kiện & Lễ Vu Quy</title>
+  <style>
+    :root {
+      --bg: #faf7f5;
+      --card: #ffffff;
+      --text: #222222;
+      --muted: #666666;
+      --accent: #b8324a;
+      --accent-hover: #962438;
+      --border: #e6dfd9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    .upload-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .upload-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      flex: 1;
+    }
+
+    input[type="text"] {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      min-width: 220px;
+      flex: 1;
+    }
+
+    input[type="file"] {
+      font-size: 0.9rem;
+      max-width: 100%;
+    }
+
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: var(--accent-hover);
+    }
+
+    button.secondary {
+      background: #eee;
+      color: #333;
+    }
+
+    button.secondary:hover {
+      background: #ddd;
+    }
+
+    .note {
+      width: 100%;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .photo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    .photo-meta {
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .photo-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .delete-btn {
+      background: #fbe9ec;
+      color: var(--accent);
+      padding: 6px 10px;
+      font-size: 0.8rem;
+      border-radius: 6px;
+    }
+
+    .delete-btn:hover {
+      background: #f5cfd6;
+    }
+
+    /* Lightbox xem ảnh lớn */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 999;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 88vh;
+      border-radius: 8px;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+    }
+
+    .empty-state {
+      text-align: center;
+      color: var(--muted);
+      padding: 40px 16px;
+      background: var(--card);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Album Ảnh Sự Kiện & Lễ Vu Quy</h1>
+    <p>Thêm, xem và quản lý hình ảnh trực tiếp trên trang</p>
+  </header>
+
+  <main class="container">
+    <section class="upload-box">
+      <div class="upload-controls">
+        <input type="text" id="captionInput" placeholder="Nhập chú thích ảnh (VD: Cổng hoa lễ vu quy)..." />
+        <input type="file" id="photoInput" accept="image/*" multiple />
+        <button type="button" id="addBtn">Thêm ảnh</button>
+        <button type="button" class="secondary" id="clearAllBtn">Xóa tất cả</button>
+      </div>
+      <p class="note">
+        * Lưu ý: Ảnh được lưu cục bộ trên trình duyệt hiện tại (<code>localStorage</code>) để dùng thử nhanh. Nếu đăng nhiều ảnh nặng hoặc muốn mọi người cùng xem trên mọi thiết bị, nên tải ảnh lên hosting/GitHub hoặc nối với dịch vụ lưu trữ ảnh/database. Nên dùng ảnh <code>.jpg</code> hoặc <code>.png</code>.
+      </p>
+    </section>
+
+    <section class="gallery" id="gallery"></section>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <button type="button" class="lightbox-close" id="closeLightbox">✕</button>
+    <img id="lightboxImg" src="" alt="Xem ảnh lớn" />
+  </div>
+
+  <script>
+    const STORAGE_KEY = "event_photo_album_v1";
+    const photoInput = document.getElementById("photoInput");
+    const captionInput = document.getElementById("captionInput");
+    const addBtn = document.getElementById("addBtn");
+    const clearAllBtn = document.getElementById("clearAllBtn");
+    const gallery = document.getElementById("gallery");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeLightbox = document.getElementById("closeLightbox");
+
+    let photos = loadPhotos();
+
+    function loadPhotos() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function savePhotos() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(photos));
+        return true;
+      } catch (e) {
+        alert("Dung lượng lưu trữ trình duyệt đã đầy (thường khoảng 5MB). Hãy xóa bớt ảnh hoặc dùng ảnh nhẹ hơn.");
+        return false;
+      }
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement("div");
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function renderGallery() {
+      if (!photos.length) {
+        gallery.innerHTML = `
+          <div class="empty-state" style="grid-column: 1 / -1;">
+            Chưa có ảnh nào trong album. Hãy chọn ảnh và bấm <strong>Thêm ảnh</strong> ở phía trên.
+          </div>
+        `;
+        return;
+      }
+
+      gallery.innerHTML = photos
+        .map(
+          (item, index) => `
+          <article class="photo-card">
+            <img src="${item.src}" alt="${escapeHtml(item.caption)}" onclick="openLightbox(${index})" />
+            <div class="photo-meta">
+              <span class="photo-title">${escapeHtml(item.caption || "Ảnh sự kiện")}</span>
+              <button type="button" class="delete-btn" onclick="deletePhoto(${index})">Xóa</button>
+            </div>
+          </article>
+        `
+        )
+        .join("");
+    }
+
+    function readFileAsDataURL(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    addBtn.addEventListener("click", async () => {
+      const files = Array.from(photoInput.files || []);
+      if (!files.length) {
+        alert("Vui lòng chọn ít nhất một bức ảnh.");
+        return;
+      }
+
+      const baseCaption = captionInput.value.trim();
+      const backup = [...photos];
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const dataUrl = await readFileAsDataURL(file);
+        const caption = files.length > 1 && baseCaption
+          ? `${baseCaption} (${i + 1})`
+          : (baseCaption || file.name.replace(/\.[^/.]+$/, ""));
+
+        photos.unshift({
+          src: dataUrl,
+          caption
+        });
+      }
+
+      if (!savePhotos()) {
+        photos = backup;
+        return;
+      }
+
+      photoInput.value = "";
+      captionInput.value = "";
+      renderGallery();
+    });
+
+    window.deletePhoto = function (index) {
+      photos.splice(index, 1);
+      savePhotos();
+      renderGallery();
+    };
+
+    clearAllBtn.addEventListener("click", () => {
+      if (!photos.length) return;
+      if (confirm("Bạn có chắc muốn xóa toàn bộ ảnh đã lưu trên trình duyệt không?")) {
+        photos = [];
+        localStorage.removeItem(STORAGE_KEY);
+        renderGallery();
+      }
+    });
+
+    window.openLightbox = function (index) {
+      const item = photos[index];
+      if (!item) return;
+      lightboxImg.src = item.src;
+      lightbox.classList.add("active");
+    };
+
+    closeLightbox.addEventListener("click", () => {
+      lightbox.classList.remove("active");
+      lightboxImg.src = "";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("active");
+        lightboxImg.src = "";
+      }
+    });
+
+    renderGallery();
+  </script>
+</body>
+</html>
